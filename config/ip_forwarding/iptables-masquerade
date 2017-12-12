@@ -1,0 +1,11 @@
+#!/bin/sh
+
+iptables_rule="POSTROUTING -j MASQUERADE"
+
+# Check if rule already exists
+sudo iptables -t nat -C $iptables_rule > /dev/null 2>&1
+
+# If it doesn't exist, insert it
+if [ $? = "1" ]; then
+	iptables -t nat -A $iptables_rule 
+fi
