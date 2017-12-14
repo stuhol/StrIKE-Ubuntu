@@ -41,7 +41,7 @@ checkRet wget $STRONGSWAN_LATEST_URL
 checkRet wget $STRONGSWAN_LATEST_SIG
 
 # Get Andreas' public key to check signature
-checkRet gpg --recv-key DF42C170B34DBA77
+checkRet gpg --keyserver keyserver.ubuntu.com --recv-key DF42C170B34DBA77
 
 # Verify Strongswan tarball using gnupg
 checkRet gpg --verify strongswan.tar.bz2.sig strongswan.tar.bz2
